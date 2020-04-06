@@ -27,6 +27,7 @@ abstract class CalendarPagerAdapter<V extends CalendarPagerView> extends PagerAd
 
   @NonNull private TitleFormatter titleFormatter = TitleFormatter.DEFAULT;
   private Integer color = null;
+  private Integer weekDayTextBackgroundColor = null;
   private Integer dateTextAppearance = null;
   private Integer weekDayTextAppearance = null;
   @ShowOtherDates
@@ -150,6 +151,9 @@ abstract class CalendarPagerAdapter<V extends CalendarPagerView> extends PagerAd
     if (color != null) {
       pagerView.setSelectionColor(color);
     }
+    if (weekDayTextBackgroundColor != null) {
+      pagerView.setWeekDayBackgroundColor(weekDayTextBackgroundColor);
+    }
     if (dateTextAppearance != null) {
       pagerView.setDateTextAppearance(dateTextAppearance);
     }
@@ -251,6 +255,23 @@ abstract class CalendarPagerAdapter<V extends CalendarPagerView> extends PagerAd
   public int getShowOtherDates() {
     return showOtherDates;
   }
+
+  public void setWeekDayBackgroundColor(int color) {
+    if (color == 0) {
+      return;
+    }
+    this.weekDayTextBackgroundColor = color;
+    for (V pagerView : currentViews) {
+      pagerView.setWeekDayBackgroundColor(color);
+    }
+  }
+
+//  public void setSelectionColor(int color) {
+//    this.color = color;
+//    for (V pagerView : currentViews) {
+//      pagerView.setSelectionColor(color);
+//    }
+//  }
 
   public void setWeekDayTextAppearance(int taId) {
     if (taId == 0) {
@@ -374,5 +395,9 @@ abstract class CalendarPagerAdapter<V extends CalendarPagerView> extends PagerAd
 
   protected int getWeekDayTextAppearance() {
     return weekDayTextAppearance == null ? 0 : weekDayTextAppearance;
+  }
+
+  protected int getWeekDayBackgroundColor() {
+    return weekDayTextBackgroundColor == null ? 0 : weekDayTextBackgroundColor;
   }
 }

@@ -2,6 +2,7 @@
 <resources>
 
   <declare-styleable name="MaterialCalendarView">
+    <attr name="ptg_setWeekDayBackgroundColor" format="color"/>
 
     <attr name="mcv_dateTextAppearance" format="reference"/>
     <attr name="mcv_weekDayTextAppearance" format="reference"/>

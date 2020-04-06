@@ -65,11 +65,16 @@ abstract class CalendarPagerView extends ViewGroup
     LocalDate local = calendar;
     for (int i = 0; i < DEFAULT_DAYS_IN_WEEK; i++) {
       WeekDayView weekDayView = new WeekDayView(getContext(), local.getDayOfWeek());
+//      weekDayView.setBackgroundColor(getResources().getColor(R.color.mcv_text_date_light));
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
         weekDayView.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
       }
       weekDayViews.add(weekDayView);
       addView(weekDayView);
+
+//      for (WeekDayView pagerView : weekDayViews) {
+//        pagerView.setBackgroundColor(getResources().getColor(R.color.ptg_default_week_background));
+//      }
       local = local.plusDays(1);
     }
   }
@@ -110,6 +115,17 @@ abstract class CalendarPagerView extends ViewGroup
       this.decoratorResults.addAll(results);
     }
     invalidateDecorators();
+  }
+
+  public void setWeekDayBackgroundColor(int taId) {
+    for (WeekDayView weekDayView : weekDayViews) {
+      weekDayView.setBackgroundColor(getResources().getColor(R.color.ptg_default_week_background));
+//      weekDayView.setBackgroundColor(taId);
+      Integer x = getResources().getColor(R.color.ptg_default_week_background);
+      Integer y = taId;
+
+      Integer z = 0;
+    }
   }
 
   public void setWeekDayTextAppearance(int taId) {

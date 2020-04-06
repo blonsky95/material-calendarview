@@ -374,6 +374,11 @@ public class MaterialCalendarView extends ViewGroup {
         setTitleFormatter(new MonthArrayTitleFormatter(array));
       }
 
+      setWeekDayBackgroundColor(a.getColor(
+              R.styleable.MaterialCalendarView_ptg_setWeekDayBackgroundColor,
+              0
+      ));
+
       setHeaderTextAppearance(a.getResourceId(
           R.styleable.MaterialCalendarView_mcv_headerTextAppearance,
           R.style.TextAppearance_MaterialCalendarWidget_Header
@@ -412,6 +417,7 @@ public class MaterialCalendarView extends ViewGroup {
       removeView(pager);
       MonthView monthView = new MonthView(this, currentMonth, getFirstDayOfWeek(), true);
       monthView.setSelectionColor(getSelectionColor());
+      monthView.setWeekDayBackgroundColor(adapter.getWeekDayBackgroundColor());
       monthView.setDateTextAppearance(adapter.getDateTextAppearance());
       monthView.setWeekDayTextAppearance(adapter.getWeekDayTextAppearance());
       monthView.setShowOtherDates(getShowOtherDates());
@@ -727,6 +733,14 @@ public class MaterialCalendarView extends ViewGroup {
    */
   public void setRightArrow(@DrawableRes final int icon) {
     buttonFuture.setImageResource(icon);
+  }
+
+  /**
+   * @param resourceId The colour resource id.
+   */
+
+  public void setWeekDayBackgroundColor(int resourceId) {
+    adapter.setWeekDayBackgroundColor(resourceId);
   }
 
   /**
