@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:mcv_weekDayTextAppearance="@style/CalendarWidgetWeekDays"
-        app:ptg_setWeekDayBackgroundColor="@color/ptg_default_week_background" />
+        app:ptg_setWeekDayBackgroundColor="#3A899C" />
 
     <TextView
         android:id="@+id/textView"

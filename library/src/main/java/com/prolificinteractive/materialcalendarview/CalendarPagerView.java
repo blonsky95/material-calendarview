@@ -119,12 +119,12 @@ abstract class CalendarPagerView extends ViewGroup
 
   public void setWeekDayBackgroundColor(int taId) {
     for (WeekDayView weekDayView : weekDayViews) {
-      weekDayView.setBackgroundColor(getResources().getColor(R.color.ptg_default_week_background));
-//      weekDayView.setBackgroundColor(taId);
-      Integer x = getResources().getColor(R.color.ptg_default_week_background);
-      Integer y = taId;
-
-      Integer z = 0;
+//      weekDayView.setBackgroundColor(getResources().getColor(R.color.ptg_default_week_background));
+      weekDayView.setBackgroundColor(taId);
+//      Integer x = getResources().getColor(R.color.ptg_default_week_background);
+//      Integer y = taId;
+//
+//      Integer z = 0;
     }
   }
 
